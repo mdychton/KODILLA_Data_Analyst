@@ -1,0 +1,21 @@
+Komenda	Tłumaczenie / znaczenie	Co robi
+pwd	print working directory	pokazuje aktualny folder
+ls	list	wyświetla listę plików i folderów
+cd	change directory	zmienia katalog
+mkdir	make directory	tworzy nowy folder
+touch	touch file	tworzy pusty plik
+cp	copy	kopiuje plik lub folder
+mv	move	przenosi plik lub zmienia jego nazwę
+rm	remove	usuwa plik lub folder
+cat	concatenate	wyświetla zawartość pliku
+less	less viewer	przegląda plik strona po stronie
+head	head of file	pokazuje początek pliku
+tail	tail of file	pokazuje koniec pliku
+grep	global regex print	wyszukuje tekst w plikach
+find	find	wyszukuje pliki w folderach
+clear	clear screen	czyści terminal
+history	command history	pokazuje historię komend
+man	manual	pokazuje instrukcję komendy
+echo	echo	wypisuje tekst w terminalu
+chmod	change mode	zmienia uprawnienia pliku
+whoami	who am I	pokazuje aktualnego użytkownika

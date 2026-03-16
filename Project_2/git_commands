@@ -1,0 +1,20 @@
+git init — inicjalizuje nowe repozytorium Git w bieżącym folderze
+git clone <url> — klonuje repozytorium z podanego adresu
+git status — pokazuje stan repozytorium i zmienione pliki
+git add <plik> — dodaje plik do staging area
+git add . — dodaje wszystkie zmienione pliki do staging area
+git commit -m "wiadomość" — zapisuje zmiany w repozytorium z opisem
+git push — wysyła lokalne commity do zdalnego repozytorium
+git pull — pobiera zmiany ze zdalnego repozytorium i scala je z lokalnym branchem
+git fetch — pobiera zmiany ze zdalnego repozytorium bez ich scalania
+git branch — wyświetla listę branchy
+git branch <nazwa> — tworzy nowy branch
+git checkout <branch> — przełącza się na wybrany branch
+git checkout -b <branch> — tworzy nowy branch i od razu się na niego przełącza
+git merge <branch> — scala wskazany branch z aktualnym
+git log — pokazuje historię commitów
+git diff — pokazuje różnice między zmianami w plikach
+git reset <plik> — usuwa plik ze staging area
+git rm <plik> — usuwa plik z repozytorium
+git stash — zapisuje tymczasowo zmiany bez commitowania
+git stash pop — przywraca zmiany zapisane w stash

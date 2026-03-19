@@ -26,3 +26,5 @@ for n in numbers:
 print()
 for n in numbers:
     print(n**3, end=" ")
+
+print("Kolega")

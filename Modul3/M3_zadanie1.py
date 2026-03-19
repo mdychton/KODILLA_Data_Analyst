@@ -29,5 +29,5 @@ for n in numbers:
 
 
 
-"print('TESTKOLEGA')"
+"print('TEST-edycjaZrepo')"
 

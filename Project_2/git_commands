@@ -38,79 +38,56 @@ GIT_TRACE=1 git pull
 
 #KLUCZ SSH
 
-ssh-keygen -t ed25519 -C "twoj_email@firma.com" - > ((domyślna ścieżka: ~/.ssh/id_ed25519))
 
+# 1️⃣ Sprawdź istniejące pliki SSH
+ls -Force ~/.ssh
 
+# 2️⃣ Wygeneruj nowy klucz SSH (jeśli nie masz)
+ssh-keygen -t ed25519 -C "email@firma.com"
+
+# 3️⃣ Uruchom ssh-agent (Windows)
 Start-Service ssh-agent
 
-
+# 4️⃣ Dodaj klucz do agenta
 ssh-add ~/.ssh/id_ed25519
 
-cat ~/.ssh/id_ed25519.pub 
+# 5️⃣ Skopiuj publiczny klucz do GitHub
+cat ~/.ssh/id_ed25519.pub  # -> kopiuj cały output
 
-🌐 Dodaj klucz do GitHub
-
-Wejdź w:
-Settings → SSH and GPG keys
-
-Kliknij:
-New SSH key
-
-Wklej klucz
-
-6. 🔐 Test połączenia
+# 6️⃣ Test połączenia z GitHub
 ssh -T git@github.com
 
-
-7. 📥 Klonowanie repo (ważne — SSH!)
+# 7️⃣ Klonowanie repo
 git clone git@github.com:ORG/REPO.git
 
-8. 🔄 Jeśli repo już istnieje (zmiana HTTPS → SSH)
+# 8️⃣ Jeśli repo już istnieje i jest HTTPS, zmień na SSH
 git remote set-url origin git@github.com:ORG/REPO.git
 
+# 9️⃣ Edycja konfiguracji SSH (opcjonalnie)
+code ~/.ssh/config
 
-
-9. 🧠 (opcjonalne, ale PRO) wymuszenie konkretnego klucza
-
-Plik:
-
-~/.ssh/config
-
-Zawartość:
-
-Host github.com
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_ed25519
-  IdentitiesOnly yes
-
-10. 🧪 Finalny test
+# 10️⃣ Finalny test
 git pull
 git push
 
-✔️ brak pytania o login/hasło = sukces
 
-💡 🔥 BONUS: wiele kont (praca + prywatne)
-# ~/.ssh/config
 
-Host github-work
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_work
-
-Host github-personal
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_personal
-
-Repo:
-
-git remote set-url origin git@github-work:ORG/REPO.git
-🧠 TL;DR (ultra skrót)
-ssh-keygen -t ed25519 -C "email"
-ssh-add ~/.ssh/id_ed25519
-cat ~/.ssh/id_ed25519.pub   # -> wrzuć do GitHub
-
-ssh -T git@github.com
-
-git clone git@github.com:ORG/REPO.git
+Komenda	Działanie / tłumaczenie	Przykład
+ls	Listowanie plików w katalogu (PowerShell alias do Get-ChildItem)	ls -Force ~/.ssh
+Get-ChildItem	Oficjalna komenda do listowania plików	Get-ChildItem -Force ~/.ssh
+cat	Wyświetla zawartość pliku w terminalu (Git Bash / Linux)	cat ~/.ssh/id_rsa.pub
+Get-Content	Wyświetla zawartość pliku w PowerShell	Get-Content ~/.ssh/id_rsa.pub
+echo	Wypisuje tekst w terminalu	echo "Hello World"
+notepad	Otwiera plik w Notatniku (Windows)	notepad ~/.ssh/config
+code	Otwiera plik w VS Code	code ~/.ssh/config
+ssh-keygen	Generowanie pary kluczy SSH	ssh-keygen -t ed25519 -C "email@firma.com"
+ssh-add	Dodaje klucz SSH do ssh-agent	ssh-add ~/.ssh/id_ed25519
+ssh -T	Test połączenia SSH z serwerem	ssh -T git@github.com
+ssh -vT	Debug SSH, pokazuje, który klucz jest używany	ssh -vT git@github.com
+git remote -v	Pokazuje URL repozytorium (SSH/HTTPS)	git remote -v
+git clone	Klonowanie repo	git clone git@github.com:ORG/REPO.git
+git pull	Pobranie najnowszych zmian z repo	git pull
+git push	Wysłanie zmian do repo	git push
+git remote set-url origin	Zmiana URL repo (np. HTTPS → SSH)	git remote set-url origin git@github.com:ORG/REPO.git
+chmod	Zmiana uprawnień pliku (Linux / WSL)	chmod 600 ~/.ssh/id_ed25519
+Start-Service ssh-agent	Uruchomienie ssh-agent w Windows	Start-Service ssh-agent

@@ -79,4 +79,64 @@ customized_hello("Clara", "Cleese", "Ms") #tu jest podany 3 argument, który nad
 """Chociaż zdefiniowaliśmy trzeci parametr, to nadal przy wywołaniu podajemy dwa. 
 Jest to możliwe, ponieważ ten trzeci jest argumentem domyślnym, który w razie jego braku przyjmuje wartość „Mr”."""
 
+print()
+
+shopping_items = [
+    "jajka",
+    "bułka",
+    "ser feta",
+    "masło",
+    "pomidor"
+]
+
+def shopping(items):
+    shopping_cart = "Koszyk zawiera: "
+    for item in items:
+        shopping_cart += item + '\n'
+    return shopping_cart
+
+basket = shopping(shopping_items)
+print(basket)
+
+
+print()
+
+shopping_items = [
+    "jajka",
+    "bułka",
+    "ser feta",
+    "masło",
+    "pomidor",
+    "chusteczki",
+    "papier toaletowy",
+]
+
+def shopping(items):
+    shopping_cart = "Koszyk zawiera: "
+    for item in items:
+        shopping_cart += item + '\n'
+    return shopping_cart
+
+basket = shopping(shopping_items)
+print(basket)
+
+
+"""
+🔄 Czyli dokładniej niż Twoje zdanie:
+
+„argument to wartość parametru podczas wykonywania funkcji”
+
+✔ Prawie dobrze, ale lepiej powiedzieć:
+
+👉 argument staje się wartością parametru w momencie wywołania funkcji
+
+🧠 Proste zdanie do zapamiętania
+
+👉 Argument → wchodzi do funkcji
+👉 Parametr → odbiera argument w środku funkcji
+
+"""
+
+
+
 

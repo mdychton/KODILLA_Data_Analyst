@@ -122,9 +122,7 @@ print(basket)
 
 
 """
-🔄 Czyli dokładniej niż Twoje zdanie:
-
-„argument to wartość parametru podczas wykonywania funkcji”
+🔄 
 
 ✔ Prawie dobrze, ale lepiej powiedzieć:
 
@@ -138,5 +136,4 @@ print(basket)
 """
 
 
-
-
+ 

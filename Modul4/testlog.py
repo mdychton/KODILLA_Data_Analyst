@@ -1,4 +1,4 @@
-import logging
+import logging                                              #ten kod daje wynik przy wpisaniu python testlog.py w terminalu, ale tez w pliku app.log
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)

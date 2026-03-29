@@ -13,3 +13,9 @@
 2026-03-27 17:09:33,440 The program was called with this parameters ['20']
 2026-03-27 17:09:33,443 First parameter is 20
 2026-03-27 17:09:33,443 You are an adult
+2026-03-29 19:39:14,322 The program was called with this parameters ['90'] root 
+2026-03-29 19:39:14,322 First parameter is 90 root 
+2026-03-29 19:39:14,322 You are an adult root 
+2026-03-29 19:41:51,365 | DEBUG | root | The program was called with this parameters ['5']
+2026-03-29 19:41:51,365 | DEBUG | root | First parameter is 5
+2026-03-29 19:41:51,366 | INFO | root | You are a kiddo!

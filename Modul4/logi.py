@@ -1,6 +1,6 @@
 import sys
 import logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s | %(levelname)s | %(name)s | %(message)s', filename="logfile.log")   #dobra konfiguracja loggera, która pozwala na zapisywanie logów do pliku "logfile.log" z odpowiednim formatem, który zawiera datę i czas, poziom logowania, nazwę loggera i wiadomość logu. Dzięki temu możemy łatwo śledzić, co dzieje się w naszym programie i jakie błędy występują.   
 
 def print_maturity(age):
     if age >= 18:

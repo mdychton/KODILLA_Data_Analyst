@@ -8,11 +8,11 @@ type(my_car)
 
 
 """
+Klasa – szablon, który definiuje strukturę i zachowanie obiektów.
 Metoda – funkcja, która jest zdefiniowana w obrębie klasy. 
 Konstruktor – funkcja, która służy do tworzenia nowych instancji klasy.
-Atrybut – zmienna, która jest zdefiniowana na poziomie klasy.
 Instancja – obiekt, który jest utworzony na podstawie klasy.
-Klasa – szablon, który definiuje strukturę i zachowanie obiektów.
+Atrybut – zmienna, która jest zdefiniowana na poziomie klasy.
 Obiekt – instancja klasy, która posiada swoje własne dane i zachowanie.
 np. Klasa Car może mieć atrybuty takie jak marka, model, rok produkcji, a także metody takie jak start() i stop(). Instancja tej klasy, np. my_car, będzie miała swoje własne wartości dla tych atrybutów i będzie mogła wywoływać te metody. Mozwli nam to tworzenie wielu obiektów na podstawie tej samej klasy, co jest jednym z głównych celów programowania obiektowego.      
 """
@@ -49,6 +49,7 @@ Klasa to „przepis na samochód”, ale to jeszcze nie jest konkretny samochód
 
 class Samochod:
     pass
+    
 🔹 Obiekt / Instancja
 
 To konkretny egzemplarz klasy.

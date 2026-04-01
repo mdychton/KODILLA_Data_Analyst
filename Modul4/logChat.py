@@ -4,7 +4,7 @@ import sys
 """to jest przyklad wygenerowany prezz ChATa"""
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.DEBUG,            # tu ustawiamy poziom logowania na DEBUG, co oznacza, że wszystkie logi o poziomie DEBUG i wyższym (INFO, WARNING, ERROR, CRITICAL) będą zapisywane do pliku    
     format='%(asctime)s | %(levelname)s | %(name)s | %(message)s', filename="logfileChat.log"
 )
 

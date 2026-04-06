@@ -1,3 +1,4 @@
+#klasa mixin to klasa, która jest przeznaczona do bycia dziedziczoną przez inne klasy, ale sama w sobie nie jest przeznaczona do tworzenia instancji. Klasy mixin są używane do dodawania dodatkowych funkcjonalności do innych klas bez konieczności tworzenia hierarchii dziedziczenia.
 class Car:
     def __init__(self, make, model_name, top_speed, color):
         self.make = make
@@ -35,8 +36,26 @@ class Truck(Car):
 
 
 
-truck = Truck(make="Mercedes", model_name="Actros", color="Black", top_speed=90, max_load=1200)
-truck.accelerate()
-print(truck.current_speed)
-print(truck)
+class DieselEngine:
+   def tank(self, how_many=100):
+       print(f"Adding {how_many} liters of Diesel")
+
+class PetrolEngine:
+   def tank(self, how_many=20):
+       print(f"Adding {how_many} liters of Petrol")
+
+class Truck(Car, DieselEngine):
+
+   def __init__(self, max_load, *args, **kwargs):
+       super().__init__(*args, **kwargs)
+       self.max_load = max_load
+
+class SportCar(Car, PetrolEngine):
+   pass
+
+
+truck = Truck(make="Mercedes", model_name="Sprinter", color="Black", top_speed=90, max_load=1200)
+porsche = SportCar(make="Porsche", model_name="911", color="Red", top_speed=250)
+truck.tank()
+porsche.tank()
 

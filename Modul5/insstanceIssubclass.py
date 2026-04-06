@@ -1,3 +1,10 @@
+"""
+W Pythonie dostępne są dwie funkcje wbudowane, które zostały zaprojektowane specjalnie po to, by wspomagać dziedziczenie obiektów: isinstance() oraz issubclass().
+
+Pozwalają one rozpoznać czy obiekt, na którym działamy, jest instancją danej klasy, lub czy dwie klasy są ze sobą związane poprzez mechanizm dziedziczenia
+
+"""
+
 class Car:
     def __init__(self, make, model_name, top_speed, color):
         self.make = make
@@ -36,7 +43,14 @@ class Truck(Car):
 
 
 truck = Truck(make="Mercedes", model_name="Actros", color="Black", top_speed=90, max_load=1200)
+car = Car(make="Ford", model_name="Mustang", top_speed=250, color="red")
 truck.accelerate()
 print(truck.current_speed)
 print(truck)
 
+print(isinstance(truck, Truck))  # sprawdza czy obiekt truck jest instancją klasy Truck
+print(isinstance(truck, Car))    # sprawdza czy obiekt truck jest instancją klasy Car
+print(issubclass(Truck, Car))    # sprawdza czy klasa Truck jest podklasą klasy Car
+print(issubclass(Car, Truck))    # sprawdza czy klasa Car jest podklasą klasy Truck
+print(isinstance(car, Car) ) # sprawdza czy obiekt car jest instancją klasy Car
+print(isinstance(car, Truck)) # sprawdza czy obiekt car jest instancją klasy Truck

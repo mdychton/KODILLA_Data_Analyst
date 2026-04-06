@@ -1,21 +1,29 @@
 class Vehicle:
+    def __init__(self, name):
+        self.name = name
+
     def move(self):
-        print("The vehicle is moving.")
+        print(f"{self.name} is moving.")
+
 
 class Car(Vehicle):
     def move(self):
-        print("The car is driving.")
+        print(f"{self.name} is driving.")
+
 
 class Boat(Vehicle):
     def move(self):
-        print("The boat is sailing.")
+        print(f"{self.name} is sailing.")
+
 
 class Plane(Vehicle):
     def move(self):
-        print("The plane is flying.")
-              
-              
-vehicles = [Car(), Boat(), Plane()]
+        print(f"{self.name} is flying.")
+   
+vehicles = [Car("Toyota"), 
+            Boat("Sailboat"), 
+            Plane("Airplane")]
+
 for vehicle in vehicles:
     vehicle.move()
 

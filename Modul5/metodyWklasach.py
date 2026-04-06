@@ -61,6 +61,7 @@ car_two = Car(make="Ford", model_name="Fiesta", top_speed=200, color="Blue")
 car_three = Car(make="Porsche", model_name="911", top_speed=320, color="Black")
 cars = [car_one, car_two, car_three]
 by_speed = sorted(cars, key=lambda car: car.top_speed)
+print()
 by_make = sorted(cars, key=lambda car: car.make)
 
 print(cars)

@@ -1,39 +1,7 @@
 
 
 """
-1. INSERT — dodawanie danych (Projekt + Zadanie)
-
-import sqlite3
-
-conn = sqlite3.connect("database.db")
-cursor = conn.cursor()
-
-# --- DODAJEMY PROJEKT ---
-cursor.execute("""
-INSERT INTO projects (nazwa, start_date, end_date)
-VALUES (?, ?, ?)
-""", ("Aplikacja CRM", "2026-04-01", "2026-06-01"))
-
-project_id = cursor.lastrowid  # ID właśnie dodanego projektu
-
-# --- DODAJEMY ZADANIE PRZYPISANE DO PROJEKTU ---
-cursor.execute("""
-INSERT INTO tasks (project_id, nazwa, opis, status, start_date, end_date)
-VALUES (?, ?, ?, ?, ?, ?)
-""", (
-    project_id,
-    "Login system",
-    "Stworzenie logowania użytkowników",
-    "in progress",
-    "2026-04-02",
-    "2026-04-10"
-))
-
-conn.commit()
-conn.close()
-
-
--------------------------------------------------------
+1
 2. JOIN — łączenie tabel
 
 import sqlite3

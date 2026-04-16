@@ -1,17 +1,28 @@
-from sqlalchemy import create_engine  # importujemy funkcję do tworzenia połączenia z bazą danych
+from sqlalchemy import create_engine, inspect, text
+# create_engine → tworzy połączenie z bazą
+# inspect → pozwala sprawdzić strukturę bazy (tabele)
+# text → pozwala pisać surowe SQL
 
-engine = create_engine('sqlite:///database.db')  # tworzymy silnik (połączenie) do bazy SQLite (plik database.db)
+# tworzymy engine = połączenie do pliku SQLite
+engine = create_engine('sqlite:///database.db', echo=True)
+# echo=True → pokazuje zapytania SQL w konsoli (debug)
 
-print(engine.driver)  # wypisuje, jakiego drivera używa (np. 'pysqlite')
+# sprawdzamy jakie tabele są w bazie
+inspector = inspect(engine)
+print(inspector.get_table_names())
+# → zwraca listę tabel np. ['students', 'tasks']
 
-print(engine.table_names())  # pobiera i wypisuje listę tabel w bazie danych
+# wykonanie testowego SELECT
+with engine.connect() as conn:
+    # otwieramy połączenie z bazą (automatycznie się zamknie po wyjściu z with)
+    
+    result = conn.execute(text("SELECT * FROM tasks"))
+    # wykonujemy SQL
 
-print(engine.execute("SELECT * FROM tasks"))  # wykonuje zapytanie SQL i wypisuje obiekt wyniku (nie same dane!)
-
-results = engine.execute("SELECT * FROM tasks")  # wykonujemy zapytanie i zapisujemy wynik do zmiennej
-
-for r in results:  # iterujemy po każdym wierszu wyniku
-   print(r)  # wypisujemy każdy rekord (wiersz z tabeli tasks)
+    for row in result:
+        # przechodzimy przez każdy wiersz wyniku
+        print(row)
+        # wypisujemy dane z tabeli
 
 
 

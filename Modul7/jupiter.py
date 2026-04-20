@@ -1,3 +1,4 @@
+"""
 📓 Czym jest Jupyter Notebook?
 
 Jupyter Notebook to narzędzie do pracy z kodem (najczęściej Pythonem), które pozwala łączyć:
@@ -50,3 +51,26 @@ Jupyter pozwala:
 pokazać tok myślenia krok po kroku
 łatwo dzielić się analizą z innymi
 szybko testować pomysły bez budowania pełnej aplikacji
+
+
+🔹 Inne przydatne skróty nawigacji
+📌 Tryb komend (Esc):
+↑ / ↓ → poruszanie się między komórkami
+Enter → wejście do edycji komórki
+A → nowa komórka nad
+B → nowa komórka pod
+🧠 Najważniejsze rozróżnienie
+🔵 Tryb edycji (zielona ramka)
+piszesz kod/tekst
+Shift + Enter → uruchamia
+⚪ Tryb komend (niebieska ramka)
+poruszasz się po notebooku
+NIE uruchamiasz kodu
+💡 Odpowiedź wprost na Twoje pytanie
+
+👉 TAK — możesz przejść do następnej komórki bez run
+✔️ używając Esc + ↓
+✔️ albo klikając myszką
+
+
+"""

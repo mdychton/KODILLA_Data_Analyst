@@ -59,6 +59,13 @@ my_arr[2:10:2]   # co drugi element od 2 do 9
 my_arr[:5]       # od początku do 4
 my_arr[5:]       # od 5 do końca
 my_arr[::2]      # co drugi element w całej tablicy
+🔹 Mini ściąga
+zapis	znaczenie
+1:	od 1 do końca
+:3	od początku do 2
+:	wszystko
+-1	ostatni element
+
 💡 Najważniejsze
 
 👉 slicing NIE zmienia danych

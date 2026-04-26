@@ -1,116 +1,152 @@
 """
-Najprostszy przykład
-import numpy as np
+🔥 1. Co to jest broadcasting (najprościej)
 
-arr = np.array([1, 2, 3])
+👉 Broadcasting = NumPy „dopasowuje” tablice, żeby dało się zrobić działanie element-po-elemencie
+
+Czyli zamiast pisać pętle:
+
+for i:
+    a[i] + 10
+
+NumPy robi:
+
+👉 „OK, ja sobie sam rozciągnę 10 do rozmiaru tablicy”
+
+🧠 2. „Rozciąganie” NIE oznacza kopiowania
+
+To klucz:
+
+👉 NumPy NIE tworzy nowych tablic
+👉 tylko udaje, że 10 ma rozmiar [10,10,10]
+
+📊 3. Przykład 1
+arr = np.array([1,2,3])
 arr + 10
 
-👉 wynik:
+👉 NumPy myśli:
 
-[11 12 13]
-🔍 Co się stało?
+10 → [10, 10, 10] (wirtualnie)
 
-NumPy traktuje 10 jak:
+wynik:
 
-[10, 10, 10]
+[11, 12, 13]
+🔥 4. Przykład 2 (2 tablice)
+a = [1,2,3]
+b = [10,20,30]
 
-👉 ale nie tworzy tej tablicy fizycznie (oszczędność pamięci)
+👉 działanie:
 
-📌 Broadcasting z dwiema tablicami
-a = np.array([1, 2, 3])
-b = np.array([10, 20, 30])
+[1+10, 2+20, 3+30]
 
-a + b
+wynik:
 
-👉 wynik:
+[11, 22, 33]
+📐 5. Najważniejsze: shape (kształt)
 
-[11 22 33]
-📌 Broadcasting z różnymi wymiarami
-a = np.array([[1],
-              [2],
-              [3]])   # shape (3,1)
+NumPy NIE patrzy na liczby, tylko na wymiary
 
-b = np.array([10, 20, 30])  # shape (3,)
-a + b
+Przykład:
+a.shape = (3,1)
+b.shape = (3,)
+Co to znaczy?
+a =
+[[1]
+ [2]
+ [3]]
+b = [10, 20, 30]
+🔥 6. Co robi NumPy?
 
-👉 wynik:
+👉 dopasowuje brakujące wymiary:
 
+a: (3,1)
+b: (1,3)
+
+👉 i „rozciąga”:
+
+(3,3)
+📊 7. Wynik
 [[11 21 31]
  [12 22 32]
  [13 23 33]]
-🔍 Jak to działa „pod spodem”?
+🧠 8. Jak to sobie wyobrazić?
 
-NumPy „rozciąga” mniejsze wymiary:
+👉 jak tabela:
 
-a: (3,1)  → kolumna
-b: (1,3)  → wiersz (automatycznie)
+      10  20  30
+1
+2
+3
 
-=> wynik: (3,3)
-📏 Zasady broadcastingu (kluczowe)
+i każda liczba się „krzyżuje”
+
+📏 9. Zasada broadcastingu (najważniejsza)
 
 Porównujemy wymiary od końca:
 
-✔️ Warunki zgodności:
-Są równe
-Jeden z nich = 1
-✅ Przykład OK:
+✔ działa jeśli:
+
+są równe
+albo jeden = 1
+Przykład OK:
 (3,1)
 (1,3)
-
-👉 wynik:
-
-(3,3)
-❌ Przykład błędu:
+→ (3,3)
+❌ Przykład NIE działa:
 (3,2)
 (3,3)
 
-👉 nie działa (bo 2 ≠ 3 i ≠ 1)
+👉 bo 2 ≠ 3 i ≠ 1
 
-📌 Broadcasting w praktyce (masking)
-arr = np.array([0, 5, 10, 15, 20])
+🔥 10. Masking = broadcasting w praktyce
 arr > 10
 
-👉 wynik:
+NumPy robi:
 
-[False False False True True]
+[0,5,10,15,20] > 10
 
-👉 NumPy porównuje KAŻDY element do 10 (bez pętli)
+czyli:
 
-📌 Broadcasting w macierzach
-arr = np.array([[1,2,3],
-                [4,5,6]])
+[False, False, False, True, True]
 
-arr + np.array([10,20,30])
+👉 porównuje każdy element bez pętli
 
-👉 wynik:
+📐 11. Reshape — po co?
 
-[[11 22 33]
- [14 25 36]]
+👉 reshape = zmiana „kształtu danych”
 
-👉 wektor został „rozciągnięty” na każdy wiersz
+przykład:
+a = [1,2,3]
+a.reshape(3,1)
 
-🧠 Intuicja (bardzo ważne)
+wynik:
 
-Broadcasting =
-👉 „dopasuj kształty tak, żeby dało się zrobić operację element po elemencie”
+[[1]
+ [2]
+ [3]]
+🧠 12. newaxis (to samo co reshape)
+a[:, np.newaxis]
 
-🔥 Typowe zastosowania
-dodawanie stałej do tablicy
-normalizacja danych
-operacje na macierzach
-masking (np. arr > 10)
-⚠️ Najczęstsze błędy
+👉 zamienia:
 
-❌ brak zgodności wymiarów
-❌ zapominanie o reshape()
+(3,)
 
-📌 Przydatne narzędzia
-a.reshape(3,1)   # zmiana kształtu
-a[:, np.newaxis] # dodanie wymiaru
-🧠 Podsumowanie
-broadcasting usuwa potrzebę pętli
-działa „wirtualnie” (bez kopiowania danych)
-wymaga zgodności wymiarów
-jest podstawą maskowania i operacji NumPy
+na:
+
+(3,1)
+🔥 13. Najważniejsza intuicja
+
+👉 broadcasting = „NumPy udaje, że tablice mają ten sam rozmiar”
+
+👉 reshape = „Ty zmieniasz kształt tablicy”
+
+💥 14. Najprostsze zdanie (do zapamiętania)
+
+👉 Broadcasting = automatyczne dopasowanie wymiarów do działań matematycznych
+
+🚀 TL;DR
+broadcasting = „rozciąganie w tle”
+reshape = „zmieniam strukturę”
+NumPy działa bez pętli
+wszystko opiera się o shape
 
 """

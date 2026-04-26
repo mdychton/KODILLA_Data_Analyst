@@ -21,7 +21,7 @@ df.loc['Student B', 'e1']
 🔹 .iloc → po numerze
 df.iloc[1]
 
-➡️ drugi wiersz (bo liczymy od 0)
+➡️ drugi wiersz (bo liczymy od 0) #PAMIETAJ ZE ILOC LICZY OD 0 [2,0] to 3 wiersz i 1 kolumna
 
 df.iloc[1, 0]
 
@@ -31,7 +31,8 @@ df.iloc[1, 0]
 1. Nazwy vs liczby
 df.loc['Student B']   # OK
 df.iloc['Student B']  # ❌ błąd
-df.iloc[1]            # OK
+df.iloc[1]            # OK # bo to jest drugi wiersz , nie trzeba podawac kolumny bo domyślnie bierze wszystkie kolumny 
+df.loc[1]             # ❌ błąd (chyba że masz indeks = 1)
 df.loc[1]             # ❌ (chyba że masz indeks = 1)
 2. Zakresy (to często myli!)
 df.loc['Student A':'Student B']

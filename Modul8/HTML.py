@@ -3,6 +3,19 @@
 # pd.read_html zwraca listę DataFrame’ów
 tables = pd.read_html(url, header=0)
 
+url = "https://simple.wikipedia.org/wiki/List_of_U.S._states_by_population"
+
+table_1 = pd.read_html(
+    url,
+    header=0,
+    storage_options={
+        "User-Agent": "Mozilla/5.0"
+    }
+)
+
+
+
+
 # 📊 Wybór pierwszej tabeli z listy (najczęściej właściwa tabela)
 df = tables[0]
 
